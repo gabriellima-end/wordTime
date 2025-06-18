@@ -19,7 +19,8 @@ public class Main {
 		System.out.print("╚███╔███╔╝╚██████╔╝██║  ██║██████╔╝   ██║   ██║██║ ╚═╝ ██║███████╗\n");
 		System.out.print(" ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝    ╚═╝   ╚═╝╚═╝     ╚═╝╚══════╝\n");
 		System.out.print("                                                                 \n");
-
+		System.out.print("BY: Gabriel Lima \n");
+		System.out.println();
 		
 		Scanner scanner = new Scanner(System.in);
 		
@@ -29,8 +30,66 @@ public class Main {
 		
 		int score = 0;
 		
-		//DESENVOLVER MENU DE ESCOLHA DO TEMPO MINIMO
+		int escolhaTempo = 0;
 		
+		int escolhaDuracao = escolhaTempo;
+		
+		int scoreSum = 0;
+		
+		int segundosEscolhido = formataTempo(escolhaDuracao);
+		
+		//MENU ESCOLHA DO TEMPO
+		while(true) {
+			System.out.println("Escolha o tempo mínimo para digitação:");
+			System.out.println("1 - 1s (impossível) : 500 pontos");
+			System.out.println("2 - 2s (díficil) : 300 pontos");
+			System.out.println("3 - 3s (médio) : 150 pontos");
+			System.out.println("4 - 4s (normal) : 100 pontos");
+			System.out.println("5 - 5s (fácil) : 50 pontos");
+			System.out.println();
+			
+			escolhaTempo = scanner.nextInt();
+			scanner.nextLine(); // CONSOME O \n PENDENTE
+	
+			escolhaDuracao = escolhaTempo;
+			
+			scoreSum = 0;
+			
+			segundosEscolhido = formataTempo(escolhaDuracao);
+			
+			if(escolhaTempo >= 1 && escolhaTempo <= 5) {
+				
+				switch(escolhaTempo) {
+				case 1 :
+					scoreSum = 500;
+					break;
+					
+				case 2 : 
+					scoreSum = 300;
+					break;
+					
+				case 3 :
+					scoreSum = 150;
+					break;
+					
+				case 4 :
+					scoreSum = 100;
+					break;
+				
+				case 5 : 
+					scoreSum = 50;
+					break;
+					
+			}
+				
+				break;
+				
+			}else {
+				
+				System.out.println("Tempo INVÁLIDO, escolha um tempo VÁLIDO!\n");
+				
+			}
+		}
 		while(true) {
 			
 			Words randomWord = new Words();
@@ -64,10 +123,11 @@ public class Main {
 			System.out.println("Tempo decorrido: " + duration.toMillis() + "ms");
 			System.out.println();
 			
-			if(timeDuration > 5000) {
+			if(timeDuration > segundosEscolhido) {
 				
 				System.out.println("Você perdeu!");
-				System.out.println("Não Digitou em menos de 5s :(");
+				System.out.println("Não Digitou em menos de "+ escolhaDuracao +"s"+" :(");
+				System.out.println();
 				
 				break;
 				
@@ -83,15 +143,28 @@ public class Main {
 			
 			if(listaPalavraSelecionada.get(i).equals(listaPalavrasDigitadas.get(i))) {
 				
-				score += 50;
+				score += scoreSum;
 				
 			}
 			
 		}
 		
-		System.out.println(listaPalavraSelecionada);
-		System.out.println(listaPalavrasDigitadas);
 		System.out.println("Sua pontuação: " + score);
+		System.out.println();
+		System.out.println("Palavras sorteadas: "+listaPalavraSelecionada);
+		System.out.println("Palavras digitadas: "+listaPalavrasDigitadas);
+		
 		
 	}
+	
+	
+	public static int formataTempo(int tempo) {
+		
+		tempo = tempo * 1000;
+		
+		return tempo;
+	}
+	
+	
+	
 }
