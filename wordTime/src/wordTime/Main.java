@@ -74,6 +74,9 @@ public class Main {
 			}
 		
 		}
+
+		//***DEV*** A ÚLTIMA PALAVRA DIGITADA, SE CERTA, AINDA PONTUA 
+		//MESMO QUE EM UM TEMPO MAIOR QUE O PERMITIDO *CORRIGIR
 		
 		//VERIFICANDO SE AS PALAVRAS ESTÃO IGUAIS E PONTUANDO
 		for(int i = 0; i<listaPalavraSelecionada.size(); i++) {
