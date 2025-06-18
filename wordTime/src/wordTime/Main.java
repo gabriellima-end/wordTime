@@ -50,7 +50,7 @@ public class Main {
 			
 			escolhaTempo = scanner.nextInt();
 			scanner.nextLine(); // CONSOME O \n PENDENTE
-	
+
 			escolhaDuracao = escolhaTempo;
 			
 			scoreSum = 0;
