@@ -159,18 +159,22 @@ public class Main {
 		//***DEV*** A ÚLTIMA PALAVRA DIGITADA, SE CERTA, AINDA PONTUA 
 		//MESMO QUE EM UM TEMPO MAIOR QUE O PERMITIDO *CORRIGIR
 		
+		int palavrasCorretas = 0;
+		
 		//VERIFICANDO SE AS PALAVRAS ESTÃO IGUAIS E PONTUANDO
 		for(int i = 0; i<listaPalavraSelecionada.size(); i++) {
 			
 			if(listaPalavraSelecionada.get(i).equals(listaPalavrasDigitadas.get(i))) {
 				
 				score += scoreSum;
+				palavrasCorretas += 1;
 				
 			}
 			
 		}
 		
-		System.out.println("Sua pontuação: " + score);
+		System.out.println("Sua pontuação: " + score +"\n");
+		System.out.println("Palavras corretas: "+ palavrasCorretas);
 		System.out.println();
 		System.out.println("Palavras sorteadas: "+listaPalavraSelecionada);
 		System.out.println("Palavras digitadas: "+listaPalavrasDigitadas);
