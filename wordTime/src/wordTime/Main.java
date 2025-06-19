@@ -49,7 +49,8 @@ public class Main {
 			System.out.println();
 			
 			escolhaTempo = scanner.nextInt();
-			scanner.nextLine(); // CONSOME O \n PENDENTE
+			System.out.println();
+			scanner.nextLine(); // CONSOME O "\n" PENDENTE
 
 			escolhaDuracao = escolhaTempo;
 			
@@ -90,6 +91,26 @@ public class Main {
 				
 			}
 		}
+		
+		//CONTAGEM REGRESSIVA
+		try {
+			
+            for (int i = 3; i > 0; i--) {
+            	
+                System.out.println(i + "...");
+                
+                Thread.sleep(1000);
+            }
+            
+            System.out.println();
+            System.out.println("Vai! \n");
+            
+        } catch (InterruptedException e) {
+        	
+            System.out.println("A contagem foi interrompida.");
+            
+        }
+		
 		while(true) {
 			
 			Words randomWord = new Words();
