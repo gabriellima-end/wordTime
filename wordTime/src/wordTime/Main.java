@@ -9,6 +9,9 @@ import java.util.Scanner;
 
 public class Main {
 	
+	//FAZER MENU PARA DIFICULDADE DAS PALAVRAS
+	//ALTERAR CLASSE WORDS PARA SELECIONAR PALAVRAS DE ACORDO COM A DIFICULDADE QUE O USUÁRIO ESCOLHER
+	
 	public static void main(String[] args) {
 		
 		System.out.print("                                                                 \n");
