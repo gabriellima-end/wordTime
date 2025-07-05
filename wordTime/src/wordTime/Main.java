@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-
+	
+	//FORMALIZAR UM ERRO CASO USUÁRIO DIGITE LETRAS AO INVÉS DE NÚMERO NOS MENUS
 	
 	public static void main(String[] args) {
 		
