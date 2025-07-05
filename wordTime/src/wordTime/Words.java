@@ -4,7 +4,9 @@ import java.util.Random;
 
 public class Words {
 
-	String palavraSelecionada;
+	String palavraSelecionadaHard;
+	String palavraSelecionadaNormal;
+	String palavraSelecionadaEasy;
 	
 	
 	public Words() {
@@ -14,7 +16,127 @@ public class Words {
 
 	private void sorting_word() {
 		
-		String[] allWords = {"desconsoladamente",
+		Random random = new Random();
+		
+		String[] allWordsEasy = {
+			    "casa", "gato", "pato", "bola", "mão", "sol", "lua", "pé", "vaca", "rato",
+			    "mesa", "fogo", "carro", "paz", "vida", "mar", "rua", "ceu", "noite", "chao",
+			    "olho", "copo", "vento", "livro", "luz", "flor", "faca", "peixe", "pao", "sapo",
+			    "roupa", "porta", "amigo", "cafe", "filho", "doce", "leao", "ave", "nuvem", "navio",
+			    "praia", "folha", "tinta", "beijo", "braco", "festa", "prato", "chuva", "farol", "pente",
+			    "velha", "mundo", "linha", "tarde", "noivo", "fruta", "campo", "barco", "terno", "anel",
+			    "dedo", "nariz", "papel", "pular", "sonho", "gelo", "voto", "motor", "janela", "banco",
+			    "chave", "pilha", "quadro", "copos", "ninho", "passe", "veado", "cinto", "senha", "garra",
+			    "trave", "pedra", "livre", "verde", "firme", "limpo", "alegre", "preto", "branco", "azul",
+			    "sorte", "norte", "leste", "baixo", "vazio", "bonito", "certo", "morar", "andar", "grito"
+			};
+		
+		int indexSelectionEasy = random.nextInt(allWordsEasy.length);
+		
+		String randomWordEasy = allWordsEasy[indexSelectionEasy];
+		
+		this.palavraSelecionadaEasy = randomWordEasy;
+		
+		String[] allWordsNormal = {
+			    "computador",
+			    "telefone",
+			    "mensagem",
+			    "trabalho",
+			    "documento",
+			    "cadeira",
+			    "universidade",
+			    "bicicleta",
+			    "hospital",
+			    "brasileiro",
+			    "informação",
+			    "conversar",
+			    "importante",
+			    "atividade",
+			    "planejado",
+			    "amizade",
+			    "conhecido",
+			    "distância",
+			    "história",
+			    "cidadania",
+			    "solução",
+			    "resposta",
+			    "desenho",
+			    "viagem",
+			    "passagem",
+			    "garantia",
+			    "elevador",
+			    "caminhada",
+			    "atendimento",
+			    "professor",
+			    "matemática",
+			    "gramática",
+			    "explicação",
+			    "educação",
+			    "abertura",
+			    "sentimento",
+			    "expansão",
+			    "liberdade",
+			    "sociedade",
+			    "tecnologia",
+			    "carregador",
+			    "presença",
+			    "precisão",
+			    "intenção",
+			    "curiosidade",
+			    "capacidade",
+			    "importação",
+			    "conclusão",
+			    "residência",
+			    "aplicação",
+			    "comunidade",
+			    "melhoria",
+			    "decoração",
+			    "reposição",
+			    "ferramenta",
+			    "computação",
+			    "informativo",
+			    "relatório",
+			    "habilidade",
+			    "instalação",
+			    "combinação",
+			    "organizado",
+			    "resultado",
+			    "cooperativa",
+			    "transporte",
+			    "garantido",
+			    "participar",
+			    "conectando",
+			    "servidores",
+			    "preferência",
+			    "tradição",
+			    "companhia",
+			    "alimentação",
+			    "experiência",
+			    "repetição",
+			    "observação",
+			    "motivação",
+			    "formulário",
+			    "cidadão",
+			    "benefício",
+			    "consciente",
+			    "preparação",
+			    "equipamento",
+			    "diversidade",
+			    "possível",
+			    "realidade",
+			    "manutenção",
+			    "configurar",
+			    "atualizado"
+			};
+		
+		int indexSelectionNormal = random.nextInt(allWordsNormal.length);
+		
+		String randomWordNormal = allWordsNormal[indexSelectionNormal];
+		
+		this.palavraSelecionadaNormal = randomWordNormal;
+		
+		String[] allWordsHard = {
+				"desconsoladamente",
 			    "desproporcionalmente",
 			    "inacreditavelmente",
 			    "inconstitucionalmente",
@@ -102,13 +224,13 @@ public class Words {
 			    "desencantadoramente",
 			    "desconcentrados"};
 		
-		Random random = new Random();
 		
-		int indexSelection = random.nextInt(allWords.length);
 		
-		String randomWord = allWords[indexSelection];
+		int indexSelectionHard = random.nextInt(allWordsHard.length);
 		
-		this.palavraSelecionada = randomWord;
+		String randomWordHard = allWordsHard[indexSelectionHard];
+		
+		this.palavraSelecionadaHard = randomWordHard;
 		
 	}
 }

@@ -8,9 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-	
-	//FAZER MENU PARA DIFICULDADE DAS PALAVRAS
-	//ALTERAR CLASSE WORDS PARA SELECIONAR PALAVRAS DE ACORDO COM A DIFICULDADE QUE O USUÁRIO ESCOLHER
+
 	
 	public static void main(String[] args) {
 		
@@ -35,9 +33,15 @@ public class Main {
 		
 		int escolhaTempo = 0;
 		
+		int escolhaDificuldade = 0;
+		
 		int escolhaDuracao = escolhaTempo;
 		
 		int scoreSum = 0;
+		
+		int scoreSumDificuldade = 0;
+		
+		
 		
 		int segundosEscolhido = formataTempo(escolhaDuracao);
 		
@@ -95,7 +99,46 @@ public class Main {
 			}
 		}
 		
-		//CONTAGEM REGRESSIVA
+		//MENU DA ESCOLHA DA DIFICULDADE DAS PALAVRAS
+		while(true) {
+			System.out.println("Escolha a dificuldade das Palavras Selecionadas");
+			System.out.println("1 - Fácil : 15 pontos");
+			System.out.println("2 - Normal : 35 pontos");
+			System.out.println("3 - Dificil : 50 pontos");
+			System.out.println();
+			
+			escolhaDificuldade = scanner.nextInt();
+			System.out.println();
+			scanner.nextLine();
+			
+			if(escolhaDificuldade >= 1 && escolhaDificuldade <= 3) {
+				
+				switch(escolhaDificuldade) {
+				case 1 :
+					scoreSumDificuldade = 15;
+					break;
+					
+				case 2 : 
+					scoreSumDificuldade = 35;
+					break;
+					
+				case 3 :
+					scoreSumDificuldade = 50;
+					break;
+					
+			}
+				
+				break;
+				
+			}else {
+				
+				System.out.println("Dificuldade INVÁLIDA, escolha uma dificuldade VÁLIDA!\n");
+				
+			}
+			
+		}
+		
+		//CONTAGEM REGRESSIVA------------------------
 		try {
 			
             for (int i = 3; i > 0; i--) {
@@ -113,21 +156,38 @@ public class Main {
             System.out.println("A contagem foi interrompida.");
             
         }
+		//FIM CONTAGEM REGRESSIVA-------------------
 		
+		//DIGITAÇÃO
 		while(true) {
 			
 			Words randomWord = new Words();
 			
-			System.out.println("A palavra selecionada é: "+randomWord.palavraSelecionada.toUpperCase() + "\n");
-			
-			//ADICIONANDO AS PALAVRAS SELECIONADAS NA LISTA
-			listaPalavraSelecionada.add(randomWord.palavraSelecionada.toUpperCase());
+			if(escolhaDificuldade == 3) {
+				
+				System.out.println("A palavra selecionada é: "+randomWord.palavraSelecionadaHard.toUpperCase() + "\n");
+				//ADICIONANDO AS PALAVRAS SELECIONADAS NA LISTA
+				listaPalavraSelecionada.add(randomWord.palavraSelecionadaHard.toUpperCase());
+				
+			}else if(escolhaDificuldade == 2) {
+				
+				System.out.println("A palavra selecionada é: "+randomWord.palavraSelecionadaNormal.toUpperCase() + "\n");
+				//ADICIONANDO AS PALAVRAS SELECIONADAS NA LISTA
+				listaPalavraSelecionada.add(randomWord.palavraSelecionadaNormal.toUpperCase());
+				
+			}else if(escolhaDificuldade == 1) {
+				
+				System.out.println("A palavra selecionada é: "+randomWord.palavraSelecionadaEasy.toUpperCase() + "\n");
+				//ADICIONANDO AS PALAVRAS SELECIONADAS NA LISTA
+				listaPalavraSelecionada.add(randomWord.palavraSelecionadaEasy.toUpperCase());
+				
+			}
 			
 			System.out.println("Digite a palavra: ");
 			
 			System.out.println();
 			
-			//CONTANDO O TEMPO QUE SE DIGITA A PALAVRA
+			//CONTANDO O TEMPO QUE SE DIGITA A PALAVRA---------------------
 			Instant startTime = Instant.now();
 			
 			String typedWord = scanner.nextLine();
@@ -136,8 +196,9 @@ public class Main {
 			//ADICIONANDO AS PALAVRAS DIGITADAS NA LISTA
 			listaPalavrasDigitadas.add(typedWord.toUpperCase());
 			
-			//FIM DA CONTAGEM
+			//FIM DA CONTAGEM-----------------------------------------------
 			Instant finishTime = Instant.now();
+			//--------------------------------------------------------------
 			
 			//CAPTURANDO O TEMPO DA DURAÇÃO
 			Duration duration = Duration.between(startTime, finishTime);
@@ -170,6 +231,7 @@ public class Main {
 			if(listaPalavraSelecionada.get(i).equals(listaPalavrasDigitadas.get(i))) {
 				
 				score += scoreSum;
+				score += scoreSumDificuldade;
 				palavrasCorretas += 1;
 				
 			}
